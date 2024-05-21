@@ -5,6 +5,9 @@ namespace App\Entity;
 use App\Repository\ItemCollectionRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: ItemCollectionRepository::class)]
 class ItemCollection
@@ -17,8 +20,20 @@ class ItemCollection
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    #[Assert\Valid()]
+    private ?CollectionCategory $category = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\OneToMany(targetEntity: CustomItemAttribute::class, mappedBy: 'ItemCollection', orphanRemoval: true, cascade: ["persist"])]
+    private Collection $CustomItemAttributes;
+
+    public function __construct(){
+        $this->customItemAttributes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +60,37 @@ class ItemCollection
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCategory(): ?CollectionCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?CollectionCategory $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function addCustomItemAttribute(CustomItemAttribute $customItemAttribute): static{
+        if($this->customItemAttributes->contains($customItemAttribute)){
+            $this->customItemAttributes->add($customItemAttribute);
+            $customItemAttribute->setItemCollection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCustomItemAttribute(CustomItemAttribute $customItemAttribute): static{
+        if($this->customItemAttributes->removeElement($customItemAttribute)){
+            if($customItemAttrinute->getItemCollection() === $this){
+                $customItemAttribute->setItemCollection(null);
+            }
+        }
 
         return $this;
     }
