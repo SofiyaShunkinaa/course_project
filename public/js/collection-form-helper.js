@@ -1,6 +1,6 @@
 function addCollectionAttribute(){
-    const collectionHolder = document.querySelector('#custom-attributes-wrapper');
-    const item = document.createElement('li');
+    const collectionHolder = document.querySelector('#custom-attributes-wraper');
+    const item = document.createElement('div');
     item.className = 'item'
   
     item.innerHTML = collectionHolder
@@ -14,18 +14,36 @@ function addCollectionAttribute(){
     collectionHolder.appendChild(item);
   
     collectionHolder.dataset.index++;
+
+    addRemoveAttributeButton(item);
 }
 
-function addRemoveAttributeButton(){
+function addRemoveAttributeButton(item){
+  const removeFormButton = document.createElement('a');
+    removeFormButton.innerText = 'Delete attribute';
+    removeFormButton.href="#"
+    item.append(removeFormButton);
 
+    removeFormButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // remove the li for the tag form
+        item.remove();
+    });
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    document
-    .querySelector('#add-custom-attribute')
-    .addEventListener('click', (e)=>{
-        e.preventDefault()
 
-        addCollectionAttribute()
-    })
+    document
+      .querySelector('#add-custom-attribute')
+      .addEventListener('click', (e)=>{
+          e.preventDefault()
+
+          addCollectionAttribute()
+      })
+
+    document
+      .querySelectorAll('#custom-attributes-wraper div.item')  
+      .forEach((row)=>{
+        addRemoveAttributeButton(row);
+      })
 })
