@@ -53,9 +53,11 @@ class CustomItemAttribute
         return $this;
     }
 
-    public function getItemCollection(): ?ItemCollection{
-        return $this->itemColection;
+    public function getItemCollection(): ?ItemCollection
+    {
+        return $this->itemCollection;
     }
+
 
     public function setItemCollection(?ItemCollection $itemCollection): static{
         $this->itemCollection = $itemCollection;
