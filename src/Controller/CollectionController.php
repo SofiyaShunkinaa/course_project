@@ -46,4 +46,23 @@ class CollectionController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/collections/{id}/update', name: 'app_collection_update', methods: [Request::METHOD_GET, Request::METHOD_POST])]
+    public function update(Request $request, ItemCollection $collection): Response
+    {
+        $form = $this->createForm(CollectionType::class, $collection);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->flush();
+
+            $this->addFlash('success', "Collection successfully updated!");
+        }
+
+        return $this->render('collection/form.html.twig', [
+            'action' => 'Update',
+            'form' => $form->createView(),
+            'collection' => $collection,
+        ]);
+    }
 }
