@@ -29,7 +29,7 @@ class ItemCollection
     private ?string $description = null;
 
     #[ORM\OneToMany(targetEntity: CustomItemAttribute::class, mappedBy: 'ItemCollection', orphanRemoval: true, cascade: ["persist"])]
-    private Collection $CustomItemAttributes;
+    private Collection $customItemAttributes;
 
     public function __construct(){
         $this->customItemAttributes = new ArrayCollection();
@@ -76,6 +76,11 @@ class ItemCollection
         return $this;
     }
 
+    public function getCustomItemAttributes(): Collection
+    {
+        return $this->customItemAttributes;
+    }
+
     public function addCustomItemAttribute(CustomItemAttribute $customItemAttribute): static{
         if($this->customItemAttributes->contains($customItemAttribute)){
             $this->customItemAttributes->add($customItemAttribute);
@@ -87,7 +92,7 @@ class ItemCollection
 
     public function removeCustomItemAttribute(CustomItemAttribute $customItemAttribute): static{
         if($this->customItemAttributes->removeElement($customItemAttribute)){
-            if($customItemAttrinute->getItemCollection() === $this){
+            if($customItemAttribute->getItemCollection() === $this){
                 $customItemAttribute->setItemCollection(null);
             }
         }
