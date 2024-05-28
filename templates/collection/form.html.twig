@@ -3,7 +3,15 @@
 {% block title %}{{ action }} collection{% endblock %}
 
 {% block body %}
-    <h1>{{ action|capitalize }} collection</h1>
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ path('app_dashboard')}} ">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create collection</li>
+    </ol>
+    </nav>
+
+
+    <h3>{{ action|capitalize }} collection</h3>
     {{ form_start(form) }}
         {{ form_errors(form) }}
         {{form_row(form.name)}}
@@ -25,7 +33,7 @@
 
         <a id="add-custom-attribute" href="#">Add Atribute</a>
         
-        <button type="submit">{{ action|capitalize }}</button>
+        <button type="submit" formnovalidate>{{ action|capitalize }}</button>
     {{ form_end(form)}}
     
 {% endblock %}

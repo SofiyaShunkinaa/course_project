@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+    </nav>
+
+    <div class="dashboard-titlegroup">
+        <h3>My collections</h3>
+        <button><a href="{{ path('app_collection_create')}} ">add collection</a></button>
+    </div>
+
+    <div class="dashboard-collections">
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for collection in collections %}
+            {% if loop.index >= (currentPage - 1) * itemsPerPage + 1 and loop.index <= currentPage * itemsPerPage %}
+                <tr>
+                    <td>{{ collection.id }}</td>
+                    <td>{{ collection.name }}</td>
+                    <td>{{ collection.description }}</td>
+                    <td><a href="{{ path('app_collection_update', {id: collection.id}) }}">update</a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="pagination">
+    <div class="btn-group" role="group">
+        {% for page in 1..totalPages %}
+            <button class='btn btn-scondary'><a href="{{ path('app_dashboard', {'page': page}) }}">{{ page }}</a></button>
+        {% endfor %}
+    </div>
+</div>
+
+
+    </div>
+
+{% endblock %}
