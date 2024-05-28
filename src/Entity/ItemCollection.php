@@ -18,18 +18,24 @@ class ItemCollection
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min:3, max:100)]
     private ?string $name = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    #[Assert\Valid()]
     private ?CollectionCategory $category = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(targetEntity: CustomItemAttribute::class, mappedBy: 'ItemCollection', orphanRemoval: true, cascade: ["persist"])]
+    #[ORM\OneToMany(targetEntity: CustomItemAttribute::class, mappedBy: 'itemCollection', orphanRemoval: true, cascade: ["persist"])]
+    #[Assert\Valid()]
     private Collection $customItemAttributes;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable:true)]
+    private ?User $user = null;
 
     public function __construct(){
         $this->customItemAttributes = new ArrayCollection();
@@ -76,13 +82,25 @@ class ItemCollection
         return $this;
     }
 
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
     public function getCustomItemAttributes(): Collection
     {
         return $this->customItemAttributes;
     }
 
     public function addCustomItemAttribute(CustomItemAttribute $customItemAttribute): static{
-        if($this->customItemAttributes->contains($customItemAttribute)){
+        if(!$this->customItemAttributes->contains($customItemAttribute)){
             $this->customItemAttributes->add($customItemAttribute);
             $customItemAttribute->setItemCollection($this);
         }
