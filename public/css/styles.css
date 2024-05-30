@@ -8,3 +8,30 @@ header nav{
 .app-content{
     margin-top: 50px;
 }
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+button.btn{
+    background: var(--main);
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+}
+
+button.btn:hover{
+    background: var(--main-hover);
+}
+
+button.btn:active{
+    background: var(--main-active) !important;
+}
+
+button.btn a{
+    color: white;
+    text-decoration: none;
+}
