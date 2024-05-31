@@ -12,6 +12,7 @@
 
         {% block javascripts %}
         <script type="application/javascript" src="{{ asset('js/collection-form-helper.js') }}"></script>
+        <script type="application/javascript" src="{{ asset('js/theme-switcher.js') }}"></script>
         {% endblock %}
     </head>
     <body>
@@ -19,19 +20,20 @@
             <div class="container">
                 <nav>
                     <div class="nav-home">
-                    <span><a href="{{ path('app_main') }}">HOME</a></span>
-                    </div>
-                    <div class="nav-search">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <span><a href="{{ path('app_main') }}">HOME</a></span>
                     </div>
                     <div class="nav-buttons">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <button><a href="{{ path('app_dashboard') }}">Dashboard</a></button>
-                            <span>Welcome, {{ app.user.email}}</span>
-                            <button><a href="{{ path('app_logout') }}">Logout</a></button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Welcome, {{ app.user.email}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ path('app_dashboard') }}">Dashboard</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
                         {% else %}
                             <button class="btn"><a href="{{ path('app_login') }}">Login</a></button>
                             <button class="btn"><a href="{{ path('app_register') }}">Register</a></button>
@@ -57,18 +59,18 @@
                 Theme
                 </button>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">Dark</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="light">Light</a></li>
                 </ul>
             </div>
 
             <div class="btn-group dropup" role="group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-primary dropdown-toggle  disabled" data-bs-toggle="dropdown" aria-expanded="false">
                 Lang
                 </button>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
-                <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                <li><a class="dropdown-item  disabled" href="#">Dropdown link</a></li>
+                <li><a class="dropdown-item  disabled" href="#">Dropdown link</a></li>
                 </ul>
             </div>
         </div>
