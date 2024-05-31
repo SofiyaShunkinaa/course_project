@@ -10,30 +10,31 @@
         </ol>
     </nav>
 
-
+    <div class="form-container">
     <h3>{{ action|capitalize }} collection</h3>
     {{ form_start(form) }}
-        {{ form_errors(form) }}
-        {{form_row(form.name)}}
-        {{form_row(form.description)}}
-        {{form_row(form.category)}}
+    {{ form_errors(form) }}
+    {{ form_row(form.name, { attr: { class: 'form-control' } }) }}
+    {{ form_row(form.description, { attr: { class: 'form-control' } }) }}
+    {{ form_row(form.category, { attr: { class: 'form-control' } }) }}
 
-        <label>Custom attributes</label>
-        <div 
-            id="custom-attributes-wraper"
-            data-index="{{ form.customItemAttributes|length > 0 ? form.customItemAttributes|last.vars.name + 1 : 0 }}"
-            data-prototype="{{ form_widget(form.customItemAttributes.vars.prototype)|e('html_attr') }}"
-            >
-            {% for customAttribute in form.customItemAttributes %}
-                <div class="item">
-                    {{ form_row(customAttribute) }}
-                </div>
-            {% endfor %}
-        </div>
+    <label>Custom attributes</label>
+    <div 
+        id="custom-attributes-wraper"
+        data-index="{{ form.customItemAttributes|length > 0 ? form.customItemAttributes|last.vars.name + 1 : 0 }}"
+        data-prototype="{{ form_widget(form.customItemAttributes.vars.prototype)|e('html_attr') }}"
+        >
+        {% for customAttribute in form.customItemAttributes %}
+            <div class="item">
+                {{ form_row(customAttribute, { attr: { class: 'form-control' } }) }}
+            </div>
+        {% endfor %}
+    </div>
 
-        <a id="add-custom-attribute" href="#">Add Atribute</a>
-        
-        <button type="submit" formnovalidate>{{ action|capitalize }}</button>
-    {{ form_end(form)}}
+    <a id="add-custom-attribute" href="#" class="btn btn-primary">Add Attribute</a>
+    <br>
+    <button type="submit" formnovalidate class="btn btn-primary btn-collections">{{ action|capitalize }}</button>
+{{ form_end(form) }}
+</div>
     
 {% endblock %}
