@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\CollectionType;
 use App\Entity\ItemCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ItemCollectionRepository;
+use App\Repository\CustomItemAttributeRepository;
+
 
 class CollectionController extends AbstractController
 {
@@ -31,6 +34,8 @@ class CollectionController extends AbstractController
     public function create(Request $request): Response
     {
         $collection = new ItemCollection();
+        $user = $this->getUser();
+        $collection->setUser($user);
         $form = $this->createForm(CollectionType::class, $collection);
         $form->handleRequest($request);
 
@@ -64,5 +69,20 @@ class CollectionController extends AbstractController
             'form' => $form->createView(),
             'collection' => $collection,
         ]);
+    }
+
+    #[Route('/collections/{id}/delete', name: 'app_collection_delete', methods: [Request::METHOD_GET, Request::METHOD_POST])]
+    public function delete(Request $request, ItemCollectionRepository $itemCollectionRepository, CustomItemAttributeRepository $customItemAttributeRepository, int $id)
+    {
+        $customItemAttributes = $customItemAttributeRepository->findBy(['itemCollection' => $id]);
+
+        foreach ($customItemAttributes as $customItemAttribute) {
+            $this->entityManager->remove($customItemAttribute);
+        }
+
+        $itemCollection = $itemCollectionRepository->findOneBy(['id' => $id]);
+        $this->entityManager->remove($itemCollection);
+        $this->entityManager->flush();
+        return $this->redirectToRoute('app_dashboard');
     }
 }
