@@ -2,7 +2,7 @@ header nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0;
+    padding: 15px 0;
 }
 
 .app-content{
@@ -21,6 +21,7 @@ button.btn{
     border-radius: 10px;
     font-weight: 600;
     border: none;
+    color: white;
 }
 
 button.btn:hover{
@@ -31,7 +32,76 @@ button.btn:active{
     background: var(--main-active) !important;
 }
 
-button.btn a{
+button.btn a, a{
     color: white;
     text-decoration: none;
+}
+
+.form-container{
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+form{
+    width: 100%;
+}
+
+body{
+    background: var(--light-bg);
+}
+
+body.dark-theme{
+    background: var(--dark-bg);
+}
+
+header{
+    background: #AEABB3;
+}
+
+.dark-theme header{
+    background: #2F2B33;
+}
+
+footer{
+    padding: 15px 0 20px 0;
+    border-top: 2px solid #AEABB3;
+}
+
+footer .btn-group>.btn{
+    padding: 0;
+    background: none;
+    color: black;
+}
+
+.dark-theme footer .btn-group>.btn, .dark-theme h1, .dark-theme label, .dark-theme input{
+    color: white;
+}
+
+.dark-theme input, .dark-theme .form-control:focus{
+    background: #221d24;
+    color: white;
+}
+
+table{
+    margin: 15px 0 20px 0;
+}
+
+table a{
+    color: black;
+}
+
+.pagination button.btn{
+    padding: 5px 10px;
+}
+
+.pagination{
+    justify-content: center;
+}
+
+.btn-collections{
+    margin-top: 15px;
 }
