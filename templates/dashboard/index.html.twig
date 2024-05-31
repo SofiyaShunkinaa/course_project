@@ -10,8 +10,12 @@
     </nav>
 
     <div class="dashboard-titlegroup">
-        <h3>My collections</h3>
-        <button><a href="{{ path('app_collection_create')}} ">add collection</a></button>
+        {% if is_granted('ROLE_ADMIN') %}
+            <h3>All collections</h3>
+        {% else %}
+            <h3>My collections</h3>
+        {% endif %}
+        <button class="btn"><a href="{{ path('app_collection_create')}} ">add collection</a></button>
     </div>
 
     <div class="dashboard-collections">
@@ -31,7 +35,10 @@
                     <td>{{ collection.id }}</td>
                     <td>{{ collection.name }}</td>
                     <td>{{ collection.description }}</td>
-                    <td><a href="{{ path('app_collection_update', {id: collection.id}) }}">update</a></td>
+                    <td>
+                        <a href="{{ path('app_collection_update', {id: collection.id}) }}">update</a>
+                        <a href="{{ path('app_collection_delete', {id: collection.id}) }}" onclick="return confirm('Are you sure you want to delete this collection?')">delete</a>
+                    </td>
                 </tr>
                 {% endif %}
             {% endfor %}
@@ -39,14 +46,16 @@
     </table>
 
     <div class="pagination">
-    <div class="btn-group" role="group">
-        {% for page in 1..totalPages %}
-            <button class='btn btn-scondary'><a href="{{ path('app_dashboard', {'page': page}) }}">{{ page }}</a></button>
-        {% endfor %}
+        <div class="btn-group" role="group">
+            {% for page in 1..totalPages %}
+                <button class='btn btn-scondary'><a href="{{ path('app_dashboard', {'page': page}) }}">{{ page }}</a></button>
+            {% endfor %}
+        </div>
     </div>
-</div>
-
-
+{# 
+    {% if is_granted('ROLE_ADMIN') %}
+        <h3>Users</h3>
+    {% endif %} #}
     </div>
 
 {% endblock %}
