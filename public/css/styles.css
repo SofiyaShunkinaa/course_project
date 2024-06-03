@@ -110,6 +110,6 @@ table a{
     margin-bottom: 50px;
 }
 
-.breadcrumb-item{
+.breadcrumb-item a{
     color: #221d24;
 }
