@@ -105,3 +105,11 @@ table a{
 .btn-collections{
     margin-top: 15px;
 }
+
+.app-content{
+    margin-bottom: 50px;
+}
+
+.breadcrumb-item{
+    color: #221d24;
+}
