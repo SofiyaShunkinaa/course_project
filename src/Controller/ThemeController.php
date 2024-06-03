@@ -6,11 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class MainController extends AbstractController
+class ThemeController extends AbstractController
 {
-    #[Route('/', name: 'app_main')]
+    #[Route('/theme', name: 'app_theme')]
     public function index(): Response
     {
-        return $this->render('main/index.html.twig');
+        return $this->render('theme/index.html.twig', [
+            'controller_name' => 'ThemeController',
+        ]);
     }
 }
