@@ -25,7 +25,7 @@ class UserDashboardController extends AbstractController
         $user = $this->getUser();
         $collections = $itemCollectionRepository->findBy(['user' => $user]);
 
-        if ($user->hasRole('ROLE_ADMIN')) {
+        if ($user && $user->hasRole('ROLE_ADMIN')) {
             $collections = $itemCollectionRepository->findAll();
         }
 
