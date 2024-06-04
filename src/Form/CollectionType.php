@@ -32,6 +32,7 @@ class CollectionType extends AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
             ])
+
         ;
     }
 

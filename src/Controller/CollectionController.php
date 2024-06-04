@@ -11,6 +11,7 @@ use App\Entity\ItemCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ItemCollectionRepository;
 use App\Repository\CustomItemAttributeRepository;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
 class CollectionController extends AbstractController
