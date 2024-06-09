@@ -26,21 +26,21 @@
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Welcome, {{ app.user.email}}
+                                {{'Welcome'|trans}}, {{ app.user.email}}
                                 </button>
                                 <ul class="dropdown-menu">
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <li><a class="dropdown-item" href="{{ path('admin') }}">Admin dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('admin') }}">{{'Admin dashboard'|trans}}</a></li>
                                 {% else %}
-                                    <li><a class="dropdown-item" href="{{ path('app_dashboard') }}">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('app_dashboard') }}">{{'Dashboard'|trans}}</a></li>
                                 {% endif %}
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a></li>
                                 </ul>
                             </div>
                         {% else %}
-                            <button class="btn"><a href="{{ path('app_login') }}">Login</a></button>
-                            <button class="btn"><a href="{{ path('app_register') }}">Register</a></button>
+                            <button class="btn"><a href="{{ path('app_login') }}">{{'Login'|trans}}</a></button>
+                            <button class="btn"><a href="{{ path('app_register') }}">{{'Registration'|trans}}</a></button>
                         {% endif %}
                     </div>
                 </nav>
@@ -60,11 +60,11 @@
         <div class="container">
             <div class="btn-group dropup" role="group">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                Theme
+                {{'Theme'|trans}}
                 </button>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" data-theme="dark">Dark</a></li>
-                <li><a class="dropdown-item" href="#" data-theme="light">Light</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark">{{'Dark'|trans}}</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="light">{{'Light'|trans}}</a></li>
                 </ul>
             </div>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
+  <file source-language="ru" target-language="ru" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
@@ -8,6 +8,122 @@
       <trans-unit id="acVpEs4" resname="You are logged in as">
         <source>You are logged in as</source>
         <target>Вы вошли как</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Добро пожаловать</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Вход</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Выход</target>
+      </trans-unit>
+      <trans-unit id="3QLw0Ms" resname="Admin dashboard">
+        <source>Admin dashboard</source>
+        <target>Панель администратора</target>
+      </trans-unit>
+      <trans-unit id="Z7aWRoY" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Панель управления</target>
+      </trans-unit>
+      <trans-unit id="nWMiwfT" resname="Login">
+        <source>Login</source>
+        <target>Вход</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Зарегистрироваться</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Пароль</target>
+      </trans-unit>
+      <trans-unit id="_TJnqhH" resname="Remember me">
+        <source>Remember me</source>
+        <target>Запомнить меня</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>Войти</target>
+      </trans-unit>
+      <trans-unit id="x5Pg2aH" resname="Registration">
+        <source>Registration</source>
+        <target>Регистрация</target>
+      </trans-unit>
+      <trans-unit id="csyytZy" resname="Agree to terms and conditions">
+        <source>Agree to terms and conditions</source>
+        <target>Согласен с правилами и условиями</target>
+      </trans-unit>
+      <trans-unit id="FqLSEib" resname="All collections">
+        <source>All collections</source>
+        <target>Все коллекции</target>
+      </trans-unit>
+      <trans-unit id="yitVE_5" resname="My collections">
+        <source>My collections</source>
+        <target>Мои коллекции</target>
+      </trans-unit>
+      <trans-unit id="aUP.ilk" resname="add collection">
+        <source>add collection</source>
+        <target>добавить коллекцию</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Название</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Описание</target>
+      </trans-unit>
+      <trans-unit id=".4BZ3Gd" resname="Actions">
+        <source>Actions</source>
+        <target>Действия</target>
+      </trans-unit>
+      <trans-unit id="KTcBPyG" resname="update">
+        <source>update</source>
+        <target>изменить</target>
+      </trans-unit>
+      <trans-unit id="YZdZVQP" resname="delete">
+        <source>delete</source>
+        <target>удалить</target>
+      </trans-unit>
+      <trans-unit id="O3k5uRz" resname="Are you sure you want to delete this collection?">
+        <source>Are you sure you want to delete this collection?</source>
+        <target>Вы действительно хотите удалить коллекцию?</target>
+      </trans-unit>
+      <trans-unit id="Dc.oi2d" resname="Hello admin">
+        <source>Hello admin</source>
+        <target>Привет, администратор</target>
+      </trans-unit>
+      <trans-unit id="awzJBNC" resname="Users">
+        <source>Users</source>
+        <target>Пользователи</target>
+      </trans-unit>
+      <trans-unit id="n5.q3nY" resname="Collections">
+        <source>Collections</source>
+        <target>Коллекции</target>
+      </trans-unit>
+      <trans-unit id="qGHZNpQ" resname="Collection categories">
+        <source>Collection categories</source>
+        <target>Категории коллекций</target>
+      </trans-unit>
+      <trans-unit id="77UucXK" resname="Theme">
+        <source>Theme</source>
+        <target>Тема</target>
+      </trans-unit>
+      <trans-unit id="YKzFPxO" resname="Dark">
+        <source>Dark</source>
+        <target>Темная</target>
+      </trans-unit>
+      <trans-unit id="281ee7e" resname="Light">
+        <source>Light</source>
+        <target>Светлая</target>
       </trans-unit>
     </body>
   </file>
