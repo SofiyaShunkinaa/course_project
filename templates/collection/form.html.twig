@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ action }} collection{% endblock %}
+{% block title %}{{ action|trans }} {{'collection'|trans}}{% endblock %}
 
 {% block body %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ path('app_dashboard')}} ">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Create collection</li>
+            <li class="breadcrumb-item"><a href="{{ path('app_dashboard')}} ">{{'Dashboard'|trans}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{'Create collection'|trans}}</li>
         </ol>
     </nav>
 
     <div class="form-container">
-    <h3>{{ action|capitalize }} collection</h3>
+    <h3>{{ action|capitalize|trans }} {{'collection'|trans}}</h3>
     {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_row(form.name, { attr: { class: 'form-control' } }) }}
     {{ form_row(form.description, { attr: { class: 'form-control' } }) }}
     {{ form_row(form.category, { attr: { class: 'form-control' } }) }}
 
-    <label>Custom attributes</label>
+    <label>{{'Custom attributes'|trans}}</label>
     <div 
         id="custom-attributes-wraper"
         data-index="{{ form.customItemAttributes|length > 0 ? form.customItemAttributes|last.vars.name + 1 : 0 }}"
@@ -31,9 +31,9 @@
         {% endfor %}
     </div>
 
-    <a id="add-custom-attribute" href="#" class="btn btn-primary">Add Attribute</a>
+    <a id="add-custom-attribute" href="#" class="btn btn-primary">{{'Add Attribute'|trans}}</a>
     <br>
-    <button type="submit" formnovalidate class="btn btn-primary btn-collections">{{ action|capitalize }}</button>
+    <button type="submit" formnovalidate class="btn btn-primary btn-collections">{{ action|capitalize|trans }}</button>
 {{ form_end(form) }}
 </div>
     
