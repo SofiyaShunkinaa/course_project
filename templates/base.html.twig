@@ -68,15 +68,15 @@
                 </ul>
             </div>
 
-            {#<div class="btn-group dropup" role="group">
-                <button type="button" class="btn btn-primary dropdown-toggle  disabled" data-bs-toggle="dropdown" aria-expanded="false">
-                Lang
+            <div class="btn-group dropup" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                {{'Current locale'|trans}}: {{ app.request.locale }}
                 </button>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item  disabled" href="#">Dropdown link</a></li>
-                <li><a class="dropdown-item  disabled" href="#">Dropdown link</a></li>
+                <li><a class="dropdown-item" href="{{ path('change_locale', {locale: 'en' }) }}">Eng</a></li>
+                <li><a class="dropdown-item" href="{{ path('change_locale', {locale: 'ru' }) }}">Rus</a></li>
                 </ul>
-            </div>#}
+            </div>
         </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
