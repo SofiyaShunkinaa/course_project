@@ -40,8 +40,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^(?!/(login|register)), roles: ROLE_USER }
+        - { path: ^(?!/(login|register|)), roles: ROLE_USER }
         - { path: ^/ }
+        - { path: ^/change-locale, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
 when@test:
     security:
