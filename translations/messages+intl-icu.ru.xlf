@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="ru" target-language="ru" datatype="plaintext" original="file.ext">
+  <file source-language="en" target-language="ru" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
@@ -124,6 +124,38 @@
       <trans-unit id="281ee7e" resname="Light">
         <source>Light</source>
         <target>Светлая</target>
+      </trans-unit>
+      <trans-unit id="_nSW5K6" resname="collection">
+        <source>collection</source>
+        <target>коллекцию</target>
+      </trans-unit>
+      <trans-unit id="aRUr01l" resname="Create collection">
+        <source>Create collection</source>
+        <target>Создать коллекцию</target>
+      </trans-unit>
+      <trans-unit id="qPjLeVz" resname="Custom attributes">
+        <source>Custom attributes</source>
+        <target>Кастомные арибуты</target>
+      </trans-unit>
+      <trans-unit id="gYHEPXZ" resname="Add Attribute">
+        <source>Add Attribute</source>
+        <target>Добавить атрибут</target>
+      </trans-unit>
+      <trans-unit id="gYHEPXZ1" resname="Current locale">
+        <source>Current locale</source>
+        <target>Текущий язык</target>
+      </trans-unit>
+      <trans-unit id="gYHEPXZ2" resname="Create">
+        <source>Create</source>
+        <target>Создать</target>
+      </trans-unit>
+      <trans-unit id="gYHEPXZ4" resname="Update">
+        <source>Update</source>
+        <target>Изменить</target>
+      </trans-unit>
+      <trans-unit id="gYHEPXZ3" resname="Category">
+        <source>Category</source>
+        <target>Категория</target>
       </trans-unit>
     </body>
   </file>
